@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title><%- title %></title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+		/>
+		<script
+			defer
+			src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+		></script>
+	</head>
+	<body style="text-align: center;">
+		<div class="block">
+			<div class="title">Upload Image To Get Caption</div>
+		</div>
+		<div class="container">
+			<div class="block">
+				<form action="/getCaption" method="POST" enctype="multipart/form-data">
+					<div class="control block">
+						<input
+							class="input"
+							type="file"
+							placeholder="Text input"
+							name="avatar"
+						/>
+					</div>
+					<div class="control block">
+						<button class="button is-primary is-outlined">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="image-container" class="block">
+			<figure class="image is-128x128">
+				<img src="<%-src%>" />
+			</figure>
+		</div>
+		<article class="message">
+			<div class="message-header">
+				<p>Hello World</p>
+				<button class="delete" aria-label="delete"></button>
+			</div>
+			<div class="message-body">
+				<%-print%>
+			</div>
+		</article>
+		<div class="block">
+			<form action="/getText" method="GET">
+				<div class="control block">
+					<button class="button is-primary is-outlined">Submit</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
